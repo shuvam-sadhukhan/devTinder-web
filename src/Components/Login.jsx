@@ -9,6 +9,8 @@ const Login = () => {
 
     const [email,setEmail]=useState('shika@gmail.com');
     const [password,setPassword]=useState('Shika@123');
+    const [error,setError]=useState(false);
+    const [errMsg,setErrMsg]=useState(null);
     
     const dispatch=useDispatch();
     const navigate=useNavigate();
@@ -17,10 +19,7 @@ const Login = () => {
     
     try{
        
-        const res= await axios.post(BASE_URL+'/login',{
-            email,
-            password,
-        },{withCredentials:true});
+        const res= await axios.post(BASE_URL+'/login',{email, password,},{withCredentials:true});
        console.log(res.data); 
        dispatch(addUser(res.data));
        navigate('/feed');
@@ -36,6 +35,9 @@ const Login = () => {
 
     }catch(e){  
         console.log(e);
+        
+        setError(true);
+        setErrMsg(e.response.data);
     }
 
     }
@@ -58,6 +60,7 @@ const Login = () => {
   
 </fieldset>
    </div>
+   {error &&<p className='text-red-500'>Error message: {errMsg}</p>}
     <div className="card-actions justify-center">
       <button className="btn btn-primary" onClick={handleLogin}>Login</button>
     </div>

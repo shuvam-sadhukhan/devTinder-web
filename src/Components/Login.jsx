@@ -62,7 +62,7 @@ const Login = () => {
    </div>
    {error &&<p className='text-red-500'>Error message: {errMsg}</p>}
     <div className="card-actions justify-center">
-      <button className="btn btn-primary" onClick={handleLogin}>Login</button>
+      <button className="btn btn-soft btn-success" onClick={handleLogin}>Login</button>
     </div>
   </div>
 </div>

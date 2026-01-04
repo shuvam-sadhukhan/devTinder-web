@@ -3,6 +3,7 @@ import { BASE_URL } from "../Utils/constants";
 import { Link, useNavigate } from "react-router-dom";
 import { removeUser } from "../Utils/userSlice";
 import axios from "axios";
+import { removeFeed } from "../Utils/feedSlice";
 
 const Navbar=()=>{
 
@@ -13,6 +14,7 @@ const Navbar=()=>{
   const handleLogout=async()=>{
       const deleteData= await axios.post(BASE_URL+'/logout',{},{withCredentials:true});
       dispatch(removeUser());
+      dispatch(removeFeed());
       navigate('/login');
 
   }
@@ -31,7 +33,7 @@ const Navbar=()=>{
         <div className="w-10 rounded-full">
           <img
             alt="Tailwind CSS Navbar component"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+            src={selector.photoUrl} />
         </div>
       </div>
       <ul

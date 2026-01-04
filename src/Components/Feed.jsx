@@ -31,7 +31,8 @@ const Feed = () => {
   
   return (
    <div className='flex justify-center my-10'>
-   { selector && <UserCard value={selector[0]} />}
+   {/* { selector && <UserCard value={selector[0]} />} */}
+   {selector && <UserCard />}
     </div>
    
   )

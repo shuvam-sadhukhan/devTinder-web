@@ -1,5 +1,10 @@
-const UserCard=({value})=>{
-    return (
+import { useSelector } from "react-redux"
+
+const UserCard=()=>{
+
+  const data=useSelector((store)=>store.feed);
+  const {firstName,lastName,photoUrl}=data[0];
+    return (  
         <>
         <div className="card bg-base-100 w-96 shadow-sm">
   <figure>
@@ -8,7 +13,7 @@ const UserCard=({value})=>{
       alt="Shoes" />
   </figure>
   <div className="card-body">
-    <h2 className="card-title">{value.firstName}</h2>
+    <h2 className="card-title">{firstName}{lastName}</h2>
     <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
     <div className="card-actions justify-end">
       <button className="btn btn-primary">Buy Now</button>

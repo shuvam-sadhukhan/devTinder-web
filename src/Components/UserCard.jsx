@@ -3,20 +3,21 @@ import { useSelector } from "react-redux"
 const UserCard=({user})=>{
 
   // const data=useSelector((store)=>store.feed);
-  const {firstName,lastName,photoUrl}=user[0];
+  const {firstName,lastName,photoUrl,about}=user[2];
     return (  
         <>
         <div className="card bg-base-100 w-96 shadow-sm">
   <figure>
     <img
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-      alt="Shoes" />
+      src={photoUrl}
+      alt="photo" />
   </figure>
   <div className="card-body">
-    <h2 className="card-title">{firstName}{lastName}</h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+    <h2 className="card-title">{firstName}&nbsp;{lastName}</h2>
+    <p>{about}</p>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
+     <button className="btn btn-info">Ignore</button>
+     <button className="btn btn-secondary">Interested</button>
     </div>
   </div>
 </div>

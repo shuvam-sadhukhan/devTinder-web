@@ -12,26 +12,34 @@ const EditProfile = ({user}) => {
   const[gender,setGender]=useState(user.gender);
   const[about,setAbout]=useState(user.about);
   const[photoUrl,setPhotoUrl]=useState(user.photoUrl);
+  const [toast,setToast]=useState(false);
   const dispatch=useDispatch();
+  
 
   const handleEdit=async()=>{
     try{
          const res=await axios.patch(BASE_URL+'/profile/edit',{
             firstName,lastName,age,gender,about,photoUrl},{withCredentials:true});
-            dispatch(addUser(res.data.data))
+            dispatch(addUser(res.data.data));
+           setToast(true);
+           setTimeout(()=>{
+            setToast(false);
+           },5000);
+           
          }catch(e){
             console.log(e);
          }
   }
   return (
     <>
-     <div className=" flex items-center justify-center bg-gray-100 px-4 py-4">
+    <div className='sm:flex sm:justify-center   flex-1 mx-4 '>
+     <div className=" flex items-center justify-center  border-e-white px-4 py-4 my-4">
       <div className="w-xl h-auto  bg-white rounded-xl shadow-lg p-6">
-        <h2 className="text-xl font-bold text-center text-gray-800 mb-3">
+        <h2 className="text-xl font-bold text-center text-gray-800 mb-1">
           Edit Profile
         </h2> 
 
-        <form  className="space-y-4">
+        <form  className="space-y-4" onSubmit={(e)=>e.preventDefault()}>
          
           <div>
             <label className="block text-sm font-medium text-gray-700">
@@ -92,6 +100,30 @@ const EditProfile = ({user}) => {
         </form>
       </div>
     </div>  
+   { toast &&(<div className="toast toast-top toast-center">
+ 
+  <div className="alert alert-success ">
+    <span>Message sent successfully.</span>
+  </div>
+</div>)}
+
+ {/* // view profile */}
+
+ <div className="card bg-base-100 md:w-96 md:h-149 shadow-sm my-4 w-86 h-250 " >
+  <figure >
+    <img
+      src={user.photoUrl}
+      alt="Shoes" />
+  </figure>
+  <div className="card-body">
+    <h2 className="card-title">
+      {user.firstName}&nbsp;{user.lastName}</h2>
+      <p>{user.age}</p>
+    <p>{user.about}</p>
+   
+  </div>
+</div>
+</div>
     </>
   )
 }

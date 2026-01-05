@@ -22,7 +22,7 @@ const Navbar=()=>{
     <>
     <div className="navbar bg-base-200 shadow-sm">
   <div className="flex-1 sm:text-left text-center ">
-    <Link to='/' className="btn btn-ghost text-xl "> &#128105;devTinder</Link>
+    <Link to='/feed' className="btn btn-ghost text-xl "> &#128105;devTinder</Link>
   </div>
   { selector && (
   <div className="flex gap-2">
@@ -40,12 +40,12 @@ const Navbar=()=>{
         tabIndex="-1"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li>
-          <Link to='/profile' className="justify-between">
+          <Link to='/profile'>
             Profile
-            <span className="badge">New</span>
+           
           </Link>
         </li>
-        <li><a>Settings</a></li>
+        <Link to='/connections'> Connections</Link>
         <li><a><div onClick={handleLogout}>Logout</div></a></li>
       </ul>
     </div>

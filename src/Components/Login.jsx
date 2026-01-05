@@ -45,9 +45,9 @@ const Login = () => {
    <>
    
    <div className="div flex justify-center my-10">
-   <div className="card card-border bg-base-200 w-100">
+   <div className="card card-border bg-base-300 w-100  mx-10">
   <div className="card-body">
-    <h2 className="card-title justify-center">Login</h2>
+    <h2 className="card-title justify-center font-bold">Login</h2>
    <div className="div">
   <fieldset className="fieldset">
   <legend className="fieldset-legend">Email Id</legend>

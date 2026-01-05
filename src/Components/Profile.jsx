@@ -11,7 +11,9 @@ const Profile = () => {
   return  (
     user && (
     <>
+    
      <EditProfile user={user} />
+  
     </>
     )
   

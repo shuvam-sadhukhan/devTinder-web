@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux"
 
-const UserCard=()=>{
+const UserCard=({user})=>{
 
-  const data=useSelector((store)=>store.feed);
-  const {firstName,lastName,photoUrl}=data[0];
+  // const data=useSelector((store)=>store.feed);
+  const {firstName,lastName,photoUrl}=user[0];
     return (  
         <>
         <div className="card bg-base-100 w-96 shadow-sm">

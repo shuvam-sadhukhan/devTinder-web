@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { BASE_URL } from '../Utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
 import { addFeed } from '../Utils/feedSlice'
-import UserCard from './userCard'
+import UserCard from './UserCard'
 
 const Feed = () => {  
 
@@ -32,7 +32,7 @@ const Feed = () => {
   return (
    <div className='flex justify-center my-10'>
    {/* { selector && <UserCard value={selector[0]} />} */}
-   {selector && <UserCard />}
+   {selector && <UserCard user={selector}/>}
     </div>
    
   )

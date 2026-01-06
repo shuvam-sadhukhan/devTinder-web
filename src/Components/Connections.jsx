@@ -9,6 +9,7 @@ const Connections = () => {
 
   const dispatch=useDispatch();
   const connections=useSelector((store)=>store.connections.view);
+  const btn=['Remove','Block'];
 
     const fetchApi=async()=>{
         try{
@@ -31,14 +32,17 @@ const Connections = () => {
     if(connections.length===0) return <h1>No connections found</h1>
   return (
    <>
-   <div className=' text-center my-10'>
-    <h1 className='font-bold text-2xl'>connections</h1> 
-    <div className='w-[500px] h-auto border-2 mx-auto my-2 p-2 bg-amber-50'>
+   
+   <div className=' text-center bg-[#FBE580] min-h-screen opacity-70 '>
+    <h2 className='font-bold text-xl md:text-3xl md:py-4'>Connections</h2> 
+    <div className='md:w-[550px] h-auto  rounded-2xl md:mx-auto md:my-6 md:p-2 bg-[#FFFDE1] shadow-xl/30 
+    w-[300px] p-1 my-4 mx-4'>
     {connections.map((e)=>{
-      return  <ConnectionPage key={e._id} data={e} />
+      return  <ConnectionPage key={e._id} data={e}  value={btn}/>
     })}
     </div>
    </div>
+   
    </>
   )
 }

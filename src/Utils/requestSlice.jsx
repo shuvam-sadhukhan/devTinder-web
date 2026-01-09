@@ -9,8 +9,12 @@ const requestslice=createSlice({
     reducers:{
         addRequest:(state,action)=>{
             state.req=action.payload
+        },
+        removeRequest:(state,action)=>{
+            state.req=state.req.filter((e)=> e._id!=action.payload);
+
         }
     }
 })
-export const{addRequest}=requestslice.actions;
+export const{addRequest,removeRequest}=requestslice.actions;
 export default requestslice.reducer;

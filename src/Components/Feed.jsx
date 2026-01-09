@@ -14,9 +14,7 @@ const Feed = () => {
 
   const feedApi=async()=>{
     if(selector) return;
-     setTimeout(()=>{
-        setToast(false);
-       },5000);
+    
     try{
      const res= await axios.get(BASE_URL+'/feed',{withCredentials:true});
     console.log(res.data);
@@ -33,13 +31,14 @@ const Feed = () => {
     feedApi();
   },[])
 
-  
+    if(!selector) return;
+    if(selector.length===0) return <>  <div className='bg-[#FBE580] m-10'><h2 className='text-center font-bold'>No More Users Found</h2></div></>
   return (
     <>
     
    <div className='flex justify-center my-10 mx-5 '>
    {/* { selector && <UserCard value={selector[0]} />} */}
-   {selector && <UserCard user={selector}/>}
+   {selector && <UserCard user={selector[0]}/>}
     </div>
     </>
    

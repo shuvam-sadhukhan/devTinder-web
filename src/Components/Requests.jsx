@@ -3,12 +3,13 @@ import React, { useEffect } from 'react'
 import { BASE_URL } from '../Utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
 import { addRequest } from '../Utils/requestSlice'
-import ConnectionPage from './ConnectionPage'
+
+import RequestPage from './RequestPage'
 
 const Requests = () => {
     const dispatch=useDispatch();
     const requests=useSelector((store)=>store.requests.req);
-    const btn=['Accept','Ignore'];
+    
 
     const fetchRequest=async()=>{
         try{
@@ -28,7 +29,7 @@ useEffect(()=>{
 },[])
 
 if(!requests) return;
-if(requests.length===0) return <h1>No pending request there</h1>
+if(requests.length===0) return <>  <div className='bg-[#FBE580] m-10'><h2 className='text-center font-bold'>No pending Request for You</h2></div></>
 
   return (
    <>
@@ -37,7 +38,7 @@ if(requests.length===0) return <h1>No pending request there</h1>
     <div className='md:w-[550px] h-auto  rounded-2xl mx-auto md:my-6 md:p-2 bg-[#FFFDE1] shadow-xl/30 
     w-[300px] p-1 my-4 mx-4'>
     {requests.map((e)=>{
-      return  <ConnectionPage key={e._id} data={e.fromUserId} value={btn} />
+      return  <RequestPage key={e._id} data={e.fromUserId} id={e._id} />
     })}
     </div>
    </div>

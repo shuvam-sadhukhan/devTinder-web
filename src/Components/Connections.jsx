@@ -9,7 +9,7 @@ const Connections = () => {
 
   const dispatch=useDispatch();
   const connections=useSelector((store)=>store.connections.view);
-  const btn=['Remove','Block'];
+  
 
     const fetchApi=async()=>{
         try{
@@ -29,7 +29,7 @@ const Connections = () => {
 
 
     if(!connections) return;
-    if(connections.length===0) return <h1>No connections found</h1>
+    if(connections.length===0) return <>  <div className='bg-[#FBE580] m-10'><h2 className='text-center font-bold'>No Connections for You</h2></div></>
   return (
    <>
    
@@ -38,7 +38,7 @@ const Connections = () => {
     <div className='md:w-[550px] h-auto  rounded-2xl md:mx-auto md:my-6 md:p-2 bg-[#FFFDE1] shadow-xl/30 
        w-[300px] p-1 m-6 mx-auto'>
     {connections.map((e)=>{
-      return  <ConnectionPage key={e._id} data={e}  value={btn}/>
+      return  <ConnectionPage key={e._id} data={e}/>
     })}
     </div>
    </div>

@@ -36,7 +36,7 @@ const Connections = () => {
    <div className=' text-center bg-[#FBE580] min-h-screen opacity-70 '>
     <h2 className='font-bold text-xl md:text-3xl md:py-4'>Connections</h2> 
     <div className='md:w-[550px] h-auto  rounded-2xl md:mx-auto md:my-6 md:p-2 bg-[#FFFDE1] shadow-xl/30 
-    w-[300px] p-1 my-4 mx-4'>
+       w-[300px] p-1 m-6 mx-auto'>
     {connections.map((e)=>{
       return  <ConnectionPage key={e._id} data={e}  value={btn}/>
     })}

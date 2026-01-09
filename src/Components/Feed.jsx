@@ -1,19 +1,24 @@
 import axios from 'axios'
-import React, { useEffect } from 'react'
+import React, {useState, useEffect } from 'react'
 import { BASE_URL } from '../Utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
 import { addFeed } from '../Utils/feedSlice'
 import UserCard from './UserCard'
 
+
 const Feed = () => {  
+  
 
   const dispatch=useDispatch();
   const selector=useSelector((store)=>store.feed);
 
   const feedApi=async()=>{
     if(selector) return;
+     setTimeout(()=>{
+        setToast(false);
+       },5000);
     try{
-    const res= await axios.get(BASE_URL+'/feed',{withCredentials:true});
+     const res= await axios.get(BASE_URL+'/feed',{withCredentials:true});
     console.log(res.data);
     dispatch(addFeed(res.data));
 
@@ -30,10 +35,13 @@ const Feed = () => {
 
   
   return (
-   <div className='flex justify-center my-10'>
+    <>
+    
+   <div className='flex justify-center my-10 mx-5 '>
    {/* { selector && <UserCard value={selector[0]} />} */}
    {selector && <UserCard user={selector}/>}
     </div>
+    </>
    
   )
 }

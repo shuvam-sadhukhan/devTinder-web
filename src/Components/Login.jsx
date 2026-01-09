@@ -11,6 +11,8 @@ const Login = () => {
     const [password,setPassword]=useState('Shika@123');
     const [error,setError]=useState(false);
     const [errMsg,setErrMsg]=useState(null);
+
+    const [errToast,setErrToast]=useState(false);
     
     const dispatch=useDispatch();
     const navigate=useNavigate();
@@ -23,6 +25,7 @@ const Login = () => {
        console.log(res.data); 
        dispatch(addUser(res.data));
        navigate('/feed');
+      
       //  const res=await fetch('http://localhost:3000/login',{
       //   method:"POST",
       //   headers: {
@@ -38,6 +41,10 @@ const Login = () => {
         
         setError(true);
         setErrMsg(e.response.data);
+        setErrToast(true);
+          setTimeout(()=>{
+        setErrToast(false);
+       },5000);
     }
 
     }
@@ -67,6 +74,15 @@ const Login = () => {
   </div>
 </div>
 </div>
+ {/* toast message */}
+
+{errToast && (<div className="toast toast-top toast-center">
+  
+   <div className="alert alert-success bg-red-500">
+    <span>Something went wrong</span>
+  </div>
+</div>)}
+ 
 
    </>
   )

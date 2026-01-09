@@ -4,12 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { removeUser } from "../Utils/userSlice";
 import axios from "axios";
 import { removeFeed } from "../Utils/feedSlice";
+import { useState } from "react";
 
 const Navbar=()=>{
-
+ 
   const selector=useSelector((store)=>store.user);
   const navigate=useNavigate();
-  const dispatch=useDispatch();
+  const dispatch=useDispatch(); 
 
   const handleLogout=async()=>{
       const deleteData= await axios.post(BASE_URL+'/logout',{},{withCredentials:true});
@@ -21,8 +22,8 @@ const Navbar=()=>{
     return(
     <>
     <div className="navbar bg-base-200 shadow-sm ">
-  <div className="flex-1 w-[100%]">
-    <Link to='/feed' className="btn btn-ghost md:text-2xl text-sm md:px-4 px-1  "> &#128105;devTinder</Link>
+  <div className="flex-1 w-[100%] md:text-left text-center">
+    <Link to={selector && '/feed'} className="btn btn-ghost md:text-2xl text-sm md:px-4 px-1  "> &#128105;devTinder</Link>
   </div>
   { selector && (
   <div className="flex gap-2">

@@ -34,7 +34,7 @@ if(requests.length===0) return <h1>No pending request there</h1>
    <>
      <div className=' text-center bg-[#FBE580] min-h-screen opacity-70 '>
     <h2 className='font-bold text-xl md:text-3xl md:py-4'>Requests</h2> 
-    <div className='md:w-[550px] h-auto  rounded-2xl md:mx-auto md:my-6 md:p-2 bg-[#FFFDE1] shadow-xl/30 
+    <div className='md:w-[550px] h-auto  rounded-2xl mx-auto md:my-6 md:p-2 bg-[#FFFDE1] shadow-xl/30 
     w-[300px] p-1 my-4 mx-4'>
     {requests.map((e)=>{
       return  <ConnectionPage key={e._id} data={e.fromUserId} value={btn} />

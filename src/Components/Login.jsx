@@ -30,9 +30,9 @@ const Login = () => {
     try{
        
         const res= await axios.post(BASE_URL+'/login',{email, password,},{withCredentials:true});
-       console.log(res.data); 
+      //  console.log(res.data); 
        dispatch(addUser(res.data));
-       navigate('/feed');
+       navigate('/profile');
       
       //  const res=await fetch('http://localhost:3000/login',{
       //   method:"POST",
@@ -45,7 +45,7 @@ const Login = () => {
       //  console.log(data);
 
     }catch(e){  
-        console.log(e);
+        // console.log(e);
         
         setError(true);
         setErrMsg(e.response.data);
@@ -114,8 +114,8 @@ const Login = () => {
   <legend className="fieldset-legend">Password</legend>
   <div className='flex relative'>
   <input type={lock ? "password" : "text"} className="input" value={password} onChange={(e)=> setPassword(e.target.value)} placeholder="Password" />
-  {lock ? <FontAwesomeIcon icon={faLock} className='absolute top-3 md:left-72 left-58 fa-lg' onClick={()=>handleLock()} /> :
-  <FontAwesomeIcon icon={faUnlock} className='absolute top-3 md:left-72 left-58 fa-lg' onClick={()=>handleLock()} />}
+  {lock ? <FontAwesomeIcon icon={faLock} className='absolute top-3 md:left-72 left-58 fa-lg cursor-pointer' onClick={()=>handleLock()} /> :
+  <FontAwesomeIcon icon={faUnlock} className='absolute top-3 md:left-72 left-58 fa-lg cursor-pointer' onClick={()=>handleLock()} />}
   </div>
 </fieldset>
    </div>
@@ -124,8 +124,8 @@ const Login = () => {
       <button className="btn btn-soft btn-success" onClick={toggle ? handleLogin : handleSignUp} >{toggle ? "Login" : "SignUp"}</button>
     </div>
     <div className='text-center'>
-    <p className='font-bold'>{toggle ? "New user: ": "Already a user:"}
-      <button className='font-black text-red-300 cursor-pointer' onClick={handleToggle}>{toggle ? "SignUp" : "Login"}</button></p>
+    <p className='font-bold'>{toggle ? "New user? ": "Already a user?"}&nbsp;
+      <button className='font-black text-red-500 cursor-pointer text-[18px]' onClick={handleToggle}>{toggle ? "SignUp" : "Login"}</button></p>
       </div>
   </div>
 </div>

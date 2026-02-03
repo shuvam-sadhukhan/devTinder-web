@@ -15,7 +15,7 @@ const Navbar=()=>{
   const handleLogout=async()=>{
       const deleteData= await axios.post(BASE_URL+'/logout',{},{withCredentials:true});
       dispatch(removeUser());
-      dispatch(removeFeed());
+      // dispatch(removeFeed());
       navigate('/login');
 
   }
@@ -23,11 +23,11 @@ const Navbar=()=>{
     <>
     <div className="navbar bg-base-200 shadow-sm ">
   <div className="flex-1 w-[100%] md:text-left text-center">
-    <Link to={selector && '/feed'} className="btn btn-ghost md:text-2xl text-sm md:px-4 px-1  "> &#128105;devTinder</Link>
+    <Link to={selector && '/feed'} className="btn btn-ghost md:text-2xl text-sm md:px-4 px-1  "> &#128105;Code<span className="text-rose-500">Sphere</span></Link>
   </div>
   { selector && (
   <div className="flex gap-2">
-   <div className="form-control  text-sm md:text-2xl font-bold text-red-300 md:py-1 py-2 ">Welcome {selector.firstName}</div>
+   <div className="form-control  text-sm md:text-xl font-bold text-red-300 md:py-1 py-2 ">Welcome: {selector.firstName}</div>
    <div className="dropdown dropdown-end mx-5">
     
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -41,15 +41,15 @@ const Navbar=()=>{
         tabIndex="-1"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li>
-          <Link to='/profile'>Profile</Link>
+          <Link to='/profile' className=" text-xl font-bold">Profile</Link>
         </li>
         <li>
-        <Link to='/connections'> Connections</Link>
+        <Link to='/connections'  className=" text-xl font-bold"> Connections</Link>
         </li>
          <li>
-        <Link to='/requests'> Pending Requests</Link>
+        <Link to='/requests'  className=" text-xl font-bold"> Pending Requests</Link>
         </li>
-        <li><a><div onClick={handleLogout}>Logout</div></a></li>
+        <li ><a><div  className=" text-xl font-bold" onClick={handleLogout}>Logout</div></a></li>
       </ul>
     </div>
   </div>

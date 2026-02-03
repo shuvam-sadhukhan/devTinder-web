@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-   <footer className="footer md:h-50px h-20px footer-horizontal bg-neutral text-neutral-content items-center p-4 fixed bottom-0">
+   <footer className="footer md:h-50px h-10px footer-horizontal bg-neutral text-neutral-content items-center p-4 fixed bottom-0">
   <aside className="grid-flow-col items-center">
     <svg
       width="md:12 8"
@@ -21,8 +21,8 @@ const Footer = () => {
     <a>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="12"
-        height="12"
+        width="24"
+        height="24"
         viewBox="0 0 24 24"
         className="fill-current">
         <path

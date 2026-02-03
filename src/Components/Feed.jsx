@@ -13,11 +13,11 @@ const Feed = () => {
   const selector=useSelector((store)=>store.feed);
 
   const feedApi=async()=>{
-    if(selector) return;
+    // if(selector) return;
     
     try{
      const res= await axios.get(BASE_URL+'/feed',{withCredentials:true});
-    console.log(res.data);
+    // console.log(res.data);
     dispatch(addFeed(res.data));
 
     }catch(e){

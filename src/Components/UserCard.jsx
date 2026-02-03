@@ -6,7 +6,8 @@ import { removeFeed } from "../Utils/feedSlice";
 const UserCard=({user})=>{
 
   // const data=useSelector((store)=>store.feed);
-  const {_id,firstName,lastName,photoUrl,about}=user;
+  const {_id,firstName,lastName,photoUrl,about,age,gender}=user;
+  
   const dispatch=useDispatch();
 
   const handleChange=async(status,id)=>{
@@ -23,15 +24,17 @@ const UserCard=({user})=>{
   }
     return (  
         <>
-        <div className="card bg-base-100 md:w-96 shadow-2xl w-72">
+        <div className="card bg-base-100 md:w-96 shadow-2xl w-72 p-2">
   <figure>
-    <img
-      src={photoUrl}
-      alt="photo" />
+    <img src={photoUrl} alt="photo" className=" mx-2 rounded-2xl w-full h-[350px] " />
   </figure>
   <div className="card-body">
-    <h2 className="card-title">{firstName}&nbsp;{lastName}</h2>
-    <p>{about}</p>
+    <div className="first flex justify-between pb-2">
+    <h2 className="card-title text-2xl">{firstName}&nbsp;{lastName}&nbsp;({age})</h2>
+    <span className="inline">{gender}</span>
+    </div>
+    
+    <p className="font-bold text-[14px] pb-4">{about}</p>
     <div className="card-actions justify-end">
      <button className="btn btn-info" onClick={()=>handleChange("ignore",_id)}>Ignore</button>
      <button className="btn btn-secondary" onClick={()=>handleChange("interested",_id)}>Interested</button>

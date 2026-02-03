@@ -13,7 +13,7 @@ const RequestPage = ({data,id}) => {
     const handleReviewRequest=async(status,id)=>{
         try{
             const res=axios.post(BASE_URL+'/request/review/'+status+'/'+id,{},{withCredentials:true})
-            console.log(res);
+            // console.log(res);
             dispatch(removeRequest(id));
 
 

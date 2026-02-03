@@ -109,17 +109,19 @@ const EditProfile = ({user}) => {
 
  {/* // view profile */}
 
- <div className="card bg-base-100 md:w-96 md:h-149 shadow-sm my-4 w-86 h-250 " >
+ <div className="card bg-base-100 md:w-96 md:h-149 shadow-sm my-4 w-86 h-130 mx-2" >
   <figure >
-    <img
+    <img className='mx-2 rounded-2xl w-full h-auto'
       src={user.photoUrl}
       alt="Shoes" />
   </figure>
   <div className="card-body">
-    <h2 className="card-title">
-      {user.firstName}&nbsp;{user.lastName}</h2>
-      <p>{user.age}</p>
-    <p>{user.about}</p>
+    <div className="first flex justify-between pb-4">
+    <h2 className="card-title text-2xl">{user.firstName}&nbsp;{user.lastName}&nbsp;({user.age})</h2>
+    <span className='inline'>{user.gender}</span>
+      </div>
+     
+    <p className='font-bold text-[14px] pb-4'>{user.about}</p>
    
   </div>
 </div>

@@ -7,7 +7,7 @@ export const createSocket=()=>{
 
     }
     else{
-        return io("/",{path:"https://codesphere-2127.onrender.com/socket.io"})
+        return io("/",{path:"https://codespheree-6ys9.onrender.com/socket.io"})
     }
     
 }

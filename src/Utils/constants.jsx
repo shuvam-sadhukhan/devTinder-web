@@ -1,1 +1,1 @@
- export const BASE_URL=location.hostname==="localhost" ?'http://localhost:3000': "https://codesphere-2127.onrender.com";
+ export const BASE_URL=location.hostname==="localhost" ?'http://localhost:3000': "https://codespheree-6ys9.onrender.com";
